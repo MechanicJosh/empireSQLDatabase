@@ -1,0 +1,28 @@
+CREATE SCHEMA starwars_db;
+USE starwars_db;
+
+CREATE TABLE empire(
+id INT AUTO_INCREMENT,
+name VARCHAR(100),
+species VARCHAR(100),
+affiliation VARCHAR(100),
+`rank` VARCHAR(100),
+created_at DATETIME DEFAULT NOW(),
+PRIMARY KEY (id)
+); 
+
+INSERT INTO empire (name, species, affiliation, `rank`) VALUES
+('Darth Vader', 'Human', 'Galactic Empire', 'Sith Lord'),
+('Grand Moff Tarkin', 'Human', 'Galactic Empire', 'Grand Moff'),
+('Emperor Palpatine', 'Human', 'Galactic Empire', 'Emperor'),
+('General Veers', 'Human', 'Galactic Empire', 'General'),
+('Admiral Piett', 'Human', 'Galactic Empire', 'Admiral'),
+('Captain Needa', 'Human', 'Galactic Empire', 'Captain');
+
+SELECT * FROM empire;
+
+UPDATE empire
+SET `rank` = 'Sith Lord' WHERE id = 3;
+
+DELETE FROM empire
+WHERE id = 5;
